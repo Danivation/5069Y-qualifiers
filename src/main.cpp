@@ -58,16 +58,12 @@ void autonRedLeft() {
 void autonRedRight() {
   // autonomous actions (red right)
   Inertial.setHeading(180, degrees);
-  drivePID(-340);
-  turnPID(145);
-  drivePID(-330);
+  drivePID(-900);
   MobileGoalPiston.set(true);
-  turnPID(90);
   IntakeMotor.spin(forward);
-  drivePID(300);
-  wait(500, msec);
-  turnPID(315);
+  turnPID(90);
   drivePID(600);
+  wait(500, msec);
 }
 
 void autonBlueLeft() {
