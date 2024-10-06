@@ -148,9 +148,8 @@ int main() {
   Competition.drivercontrol(driver);
   //task autons(AutonSelect);
 
-  // stop auton selector and start screen control when comp switch is plugged in
+  // stop auton selector and start screen control when competition switch is plugged in
   waitUntil(Competition.isFieldControl() || Competition.isCompetitionSwitch());
-  //autonCallback = autonCallback;
   //Competition.autonomous(autonCallback);
   Competition.autonomous(autonNone);
   //autons.stop();
