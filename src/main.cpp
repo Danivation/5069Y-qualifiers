@@ -104,7 +104,7 @@ void autonBlueRight() {
 }
 
 void driver() {
-  // set brake type to coast for driver control
+  // set coast for driver control
   LMotorA.setStopping(coast);
   LMotorB.setStopping(coast);
   LMotorC.setStopping(coast);
