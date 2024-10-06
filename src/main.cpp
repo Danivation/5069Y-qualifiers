@@ -144,7 +144,7 @@ int main() {
   wait(5, sec);
   Controller1.rumble(rumbleShort);
 
-  // setup driver control and auton selector
+  // set up driver control and auton selector
   Competition.drivercontrol(driver);
   //task autons(AutonSelect);
 
