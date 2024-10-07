@@ -73,7 +73,7 @@ void autonRedLeft() {
 }
 
 void autonRedRight() {
-  // autonomous actions (red right new)
+  // autonomous actions (new red right)
   Inertial.setHeading(180, degrees);
   drivePID(-900);
   MobileGoalPiston.set(true);
