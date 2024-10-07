@@ -113,37 +113,57 @@ int AutonSelect() {
     Controller1.Screen.clearScreen();
     Controller1.Screen.setCursor(1, 1);
     Controller1.Screen.print("Auton: None");
+    printf("Screen set\n");
     autonCallback = autonNone;
+    printf("Variable set\n");
     waitUntil(!AutonSelector.pressing());
+    printf("Button not pressing\n");
     waitUntil(AutonSelector.pressing());
+    printf("Button pressing\n");
 
     Controller1.Screen.clearScreen();
     Controller1.Screen.setCursor(1, 1);
     Controller1.Screen.print("Auton: Red Left");
+    printf("Screen set\n");
     autonCallback = autonRedLeft;
+    printf("Variable set\n");
     waitUntil(!AutonSelector.pressing());
+    printf("Button not pressing\n");
     waitUntil(AutonSelector.pressing());
+    printf("Button pressing\n");
 
     Controller1.Screen.clearScreen();
     Controller1.Screen.setCursor(1, 1);
     Controller1.Screen.print("Auton: Red Right");
+    printf("Screen set\n");
     autonCallback = autonRedRight;
+    printf("Variable set\n");
     waitUntil(!AutonSelector.pressing());
+    printf("Button not pressing\n");
     waitUntil(AutonSelector.pressing());
+    printf("Button pressing\n");
 
     Controller1.Screen.clearScreen();
     Controller1.Screen.setCursor(1, 1);
     Controller1.Screen.print("Auton: Blue Left");
+    printf("Screen set\n");
     autonCallback = autonBlueLeft;
+    printf("Variable set\n");
     waitUntil(!AutonSelector.pressing());
+    printf("Button not pressing\n");
     waitUntil(AutonSelector.pressing());
+    printf("Button pressing\n");
 
     Controller1.Screen.clearScreen();
     Controller1.Screen.setCursor(1, 1);
     Controller1.Screen.print("Auton: Blue Right");
+    printf("Screen set\n");
     autonCallback = autonBlueRight;
+    printf("Variable set\n");
     waitUntil(!AutonSelector.pressing());
+    printf("Button not pressing\n");
     waitUntil(AutonSelector.pressing());
+    printf("Button pressing\n");
   }
 }
 
