@@ -76,7 +76,6 @@ void drivePID(double targetDistance) {
 
     wait(10, msec);
   }
-  printf("Drive PID finished");
 }
 
 void turnPID(double targetHeading) {
