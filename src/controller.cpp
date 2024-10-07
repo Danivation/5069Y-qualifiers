@@ -3,12 +3,9 @@
 #include <math.h>
 #include "vex.h"
 #include "controller.h"
-#include "main.h"
 
 using namespace vex;
 timer Timer;
-
-void (*autonCallback)();
 
 // controller bindings
 const vex::controller::axis ForwardAxis = Controller1.Axis3;
@@ -18,7 +15,6 @@ const vex::controller::button IntakeOutButton = Controller1.ButtonR2;
 const vex::controller::button IntakePistonToggle = Controller1.ButtonL1;
 const vex::controller::button MobileGoalPistonToggle = Controller1.ButtonDown;
 const vex::controller::button MotorControlToggle = Controller1.ButtonB;
-const vex::controller::button AutonSelector = Controller1.ButtonA;
 
 double motorSetting;              // motor rpm multiplier (x100)
 int totalSec, timeSec, timeMin;   // timer variables
@@ -84,45 +80,6 @@ int MotorControl() {
     motorSetting = 0.1; // 10 rpm
     waitUntil(!MotorControlToggle.pressing());
     waitUntil(MotorControlToggle.pressing());
-  }
-}
-
-int AutonSelect() {
-  while (true) {
-    Controller1.Screen.clearScreen();
-    Controller1.Screen.setCursor(1, 1);
-    Controller1.Screen.print("Auton: None");
-    autonCallback = autonNone;
-    waitUntil(!AutonSelector.pressing());
-    waitUntil(AutonSelector.pressing());
-
-    Controller1.Screen.clearScreen();
-    Controller1.Screen.setCursor(1, 1);
-    Controller1.Screen.print("Auton: Red Left");
-    autonCallback = autonRedLeft;
-    waitUntil(!AutonSelector.pressing());
-    waitUntil(AutonSelector.pressing());
-
-    Controller1.Screen.clearScreen();
-    Controller1.Screen.setCursor(1, 1);
-    Controller1.Screen.print("Auton: Red Right");
-    autonCallback = autonRedRight;
-    waitUntil(!AutonSelector.pressing());
-    waitUntil(AutonSelector.pressing());
-
-    Controller1.Screen.clearScreen();
-    Controller1.Screen.setCursor(1, 1);
-    Controller1.Screen.print("Auton: Blue Left");
-    autonCallback = autonBlueLeft;
-    waitUntil(!AutonSelector.pressing());
-    waitUntil(AutonSelector.pressing());
-
-    Controller1.Screen.clearScreen();
-    Controller1.Screen.setCursor(1, 1);
-    Controller1.Screen.print("Auton: Blue Right");
-    autonCallback = autonBlueRight;
-    waitUntil(!AutonSelector.pressing());
-    waitUntil(AutonSelector.pressing());
   }
 }
 

@@ -7,8 +7,5 @@ int IntakePistonControl();
 int MobileGoalPistonControl();
 int MotorControl();
 int ScreenControl();
-int AutonSelect();
-
-extern void (*autonCallback)();
 
 #endif
