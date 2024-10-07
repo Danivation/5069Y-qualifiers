@@ -1,7 +1,7 @@
 {
 	"project": {
 		"name": "5069Y-qualifiers",
-		"slot": 1,
+		"slot": 2,
 		"description": "5069Y robot code",
 		"platform": "V5",
 		"creationDate": "Wed, 02 Oct 2024 22:52:20 GMT",
