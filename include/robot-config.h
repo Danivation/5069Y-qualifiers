@@ -15,6 +15,7 @@ extern motor RMotorA;
 extern motor RMotorB;
 extern motor RMotorC;
 extern rotation TrackerWheel;
+extern digital_out ArmPiston;
 
 /**
  * Used to initialize code/tasks/devices added using tools in VEXcode Pro.

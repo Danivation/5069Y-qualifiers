@@ -20,6 +20,7 @@ motor RMotorA = motor(PORT1, ratio6_1, true);
 motor RMotorB = motor(PORT2, ratio6_1, true);
 motor RMotorC = motor(PORT3, ratio6_1, true);
 rotation TrackerWheel = rotation(PORT15, false);
+digital_out ArmPiston = digital_out(Brain.ThreeWirePort.C);
 
 // VEXcode generated functions
 // define variable for remote controller enable/disable
