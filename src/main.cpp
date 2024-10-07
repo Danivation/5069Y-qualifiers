@@ -49,6 +49,8 @@
 using namespace vex;
 competition Competition;
 
+extern void (*autonCallback)();
+
 void driver() {
   // set coast for driver control
   LMotorA.setStopping(coast);
@@ -92,13 +94,12 @@ int main() {
 
   // set up driver control and auton selector
   Competition.drivercontrol(driver);
-  //task autons(AutonSelect);
+  task autons(AutonSelect);
 
   // stop auton selector and start screen control when competition switch is plugged in
   waitUntil(Competition.isFieldControl() || Competition.isCompetitionSwitch());
-  //Competition.autonomous(autonCallback);
-  Competition.autonomous(autonNone);
-  //autons.stop();
+  Competition.autonomous(autonCallback);
+  autons.stop();
   Controller1.Screen.clearScreen();
   //task screen(ScreenControl);
 
