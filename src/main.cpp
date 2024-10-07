@@ -42,9 +42,9 @@
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
 #include "vex.h"
+#include "auton.h"
 #include "controller.h"
 #include "drive.h"
-#include "auton.h"
 
 using namespace vex;
 competition Competition;
