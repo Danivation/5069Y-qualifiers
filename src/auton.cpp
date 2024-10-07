@@ -1,3 +1,4 @@
+#include <cstdio>
 #include "vex.h"
 #include "drive.h"
 #include "auton.h"
