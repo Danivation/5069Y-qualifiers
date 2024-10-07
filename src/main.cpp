@@ -57,6 +57,33 @@ void autonNone() {
 void autonRedLeft() {
   // autonomous actions (new red left)
   Inertial.setHeading(180, degrees);
+  drivePID(-900);
+  MobileGoalPiston.set(true);
+  IntakeMotor.spin(forward);
+  turnPID(270);
+  drivePID(600);
+  wait(500, msec);
+  turnPID(10);
+  drivePID(600);
+  wait(500, msec);
+  drivePID(-300);
+  turnPID(350);
+  drivePID(300);
+  wait(500, msec);
+  turnPID(135);
+  drivePID(1697);
+  MobileGoalPiston.set(false);
+  wait(500, msec);
+  IntakeMotor.spin(reverse);
+  wait(500, msec);
+  ArmPiston.set(true);
+  IntakeMotor.stop();
+  turnPID(180);
+  drivePID(600);
+  ArmPiston.set(false);
+  drivePID(-600);
+  turnPID(340);
+  drivePID(1800);
 }
 
 void autonRedRight() {
