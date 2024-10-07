@@ -47,8 +47,9 @@ void driver() {
   task a(MotorControl);
   task b(DrivetrainControl);
   task c(IntakeControl);
-  task e(IntakePistonControl);
-  task d(MobileGoalPistonControl);
+  task d(IntakePistonControl);
+  task e(MobileGoalPistonControl);
+  task f(ArmPistonControl);
 }
 
 int main() {
@@ -70,6 +71,7 @@ int main() {
   // set starting piston positions
   MobileGoalPiston.set(false);
   IntakePiston.set(true);
+  ArmPiston.set(false);
 
   // calibrate inertial
   Inertial.calibrate();
