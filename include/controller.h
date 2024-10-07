@@ -5,6 +5,7 @@ int DrivetrainControl();
 int IntakeControl();
 int IntakePistonControl();
 int MobileGoalPistonControl();
+int ArmPistonControl();
 int MotorControl();
 int ScreenControl();
 

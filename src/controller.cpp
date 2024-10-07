@@ -14,6 +14,7 @@ const vex::controller::button IntakeInButton = Controller1.ButtonR1;
 const vex::controller::button IntakeOutButton = Controller1.ButtonR2;
 const vex::controller::button IntakePistonToggle = Controller1.ButtonL1;
 const vex::controller::button MobileGoalPistonToggle = Controller1.ButtonDown;
+const vex::controller::button ArmPistonToggle = Controller1.ButtonL2;
 const vex::controller::button MotorControlToggle = Controller1.ButtonB;
 
 double motorSetting;              // motor rpm multiplier (x100)
@@ -68,6 +69,18 @@ int MobileGoalPistonControl() {
     MobileGoalPiston.set(true);
     waitUntil(!MobileGoalPistonToggle.pressing());
     waitUntil(MobileGoalPistonToggle.pressing());
+  }
+}
+
+int ArmPistonControl() {
+  while (true) {
+    ArmPiston.set(false);
+    waitUntil(!ArmPistonToggle.pressing());
+    waitUntil(ArmPistonToggle.pressing());
+
+    ArmPiston.set(true);
+    waitUntil(!ArmPistonToggle.pressing());
+    waitUntil(ArmPistonToggle.pressing());
   }
 }
 
