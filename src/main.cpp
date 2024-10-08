@@ -78,14 +78,14 @@ int main() {
   wait(5, sec);
   Controller1.rumble(rumbleShort);
 
-  // set up driver control and auton selector
-  Competition.drivercontrol(driver);
+  // set up auton selector
   task autons(AutonSelect);
 
-  // stop auton selector and start screen control when competition switch is plugged in
+  // when competition switch or field control is plugged in, stop auton selector, initialize competition variables, and start screen control
   waitUntil(Competition.isFieldControl() || Competition.isCompetitionSwitch());
   autons.stop();
   Competition.autonomous(autonCallback);
+  Competition.drivercontrol(driver);
   Controller1.Screen.clearScreen();
   //task screen(ScreenControl);
 
