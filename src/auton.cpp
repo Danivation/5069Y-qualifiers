@@ -5,7 +5,7 @@
 
 using namespace vex;
 
-void (*autonCallback)();
+static void (*autonCallback)();
 
 const vex::controller::button AutonSelector = Controller1.ButtonA;
 
