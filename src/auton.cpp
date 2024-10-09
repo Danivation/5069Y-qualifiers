@@ -1,11 +1,11 @@
+#include <iostream>
 #include <cstdio>
 #include "vex.h"
 #include "auton.h"
 #include "drive.h"
 
 using namespace vex;
-
-static void (*autonCallback)();
+void (*autonCallback)();
 
 const vex::controller::button AutonSelector = Controller1.ButtonA;
 
