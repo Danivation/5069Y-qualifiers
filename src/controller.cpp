@@ -230,6 +230,12 @@ void autonBlueRight() {
   drivePID(1800);
 }
 
+void autonSkills() {
+  // autonomous skills actions
+  Inertial.setHeading(0, degrees);
+  
+}
+
 int AutonSelect() {
   while (true) {
     Controller1.Screen.clearScreen();
