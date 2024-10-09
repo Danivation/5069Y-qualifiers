@@ -232,8 +232,7 @@ void autonBlueRight() {
 
 void autonSkills() {
   // autonomous skills actions
-  Inertial.setHeading(0, degrees);
-  
+  Inertial.setHeading(180, degrees);
 }
 
 int AutonSelect() {
