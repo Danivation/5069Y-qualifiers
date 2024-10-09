@@ -87,8 +87,6 @@ int main() {
   autons.stop();
   Competition.drivercontrol(driver);
   Competition.autonomous(autonCallback);
-  std::cout << autonCallback << "\n";
-  Competition.drivercontrol(driver);
   Controller1.Screen.clearScreen();
   //task screen(ScreenControl);
 
