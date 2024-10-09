@@ -377,9 +377,9 @@ int ScreenControl() {
     //
     // XX%
     Controller1.Screen.clearScreen();
-
     waitUntil(Competition.isAutonomous());
     Timer.clear();
+
     while (Competition.isAutonomous()) {
       totalSec = 15 - Timer.time(sec);
       timeMin = totalSec / 60;
@@ -393,10 +393,11 @@ int ScreenControl() {
       Controller1.Screen.setCursor(3, 1);
       Controller1.Screen.print(Line3.str());
     }
-    Controller1.Screen.clearScreen();
 
+    Controller1.Screen.clearScreen();
     waitUntil(Competition.isDriverControl());
     Timer.clear();
+    
     while (Competition.isDriverControl()) {
       totalSec = 105 - Timer.time(sec);
       timeMin = totalSec / 60;
@@ -410,6 +411,5 @@ int ScreenControl() {
       Controller1.Screen.setCursor(3, 1);
       Controller1.Screen.print(Line3.str());
     }
-    Controller1.Screen.clearScreen();
   }
 }
