@@ -1,7 +1,7 @@
 #ifndef AUTON_FUNCS
 #define AUTON_FUNCS
 
-//int AutonSelect();
+int AutonSelect();
 void autonNone();
 void autonRedLeft();
 void autonRedRight();

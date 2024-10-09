@@ -5,7 +5,7 @@
 #include "drive.h"
 
 using namespace vex;
-
+/*
 void (*autonCallback)();
 
 // controller bindings
@@ -205,4 +205,4 @@ int AutonSelect() {
     printf("Button pressing\n");
   }
 }
-
+*/
