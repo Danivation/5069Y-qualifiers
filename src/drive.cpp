@@ -1,10 +1,14 @@
+#include <iostream>
 #include "vex.h"
 #include "drive.h"
 
 using namespace vex;
+timer TimerDrive;
+timer TimerTurn;
 
 void drivePID(double targetDistance) {
   TrackerWheel.resetPosition();
+  TimerDrive.clear();
 
   const double kP = 0.5;
   const double kI = 0.04;
@@ -73,12 +77,15 @@ void drivePID(double targetDistance) {
       RMotorC.stop();
       driveFinished = true;
     }
-
     wait(10, msec);
   }
+  // Drive __ mm (error __ mm) completed in __ seconds (__ ms)
+  std::cout << "Drive " << targetDistance << " mm (error " << error << " mm) completed in " << TimerDrive.time(sec) << " seconds (" << TimerDrive.time(msec) << " ms)" << "\n";
 }
 
 void turnPID(double targetHeading) {
+  TimerTurn.clear();
+
   const double kP = 2;
   const double kI = 0.05;
   const double kD = 0;
@@ -148,7 +155,8 @@ void turnPID(double targetHeading) {
       RMotorC.stop();
       turnFinished = true;
     }
-
     wait(10, msec);
   }
+  // Turn to __ degrees (error __ degrees) completed in __ seconds (__ ms)
+  std::cout << "Turn to " << targetHeading << " degrees (error " << error << " degrees) completed in " << TimerTurn.time(sec) << " seconds (" << TimerTurn.time(msec) << " ms)" << "\n";
 }
