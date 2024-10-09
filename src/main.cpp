@@ -45,7 +45,6 @@ void driver() {
   RMotorB.setStopping(coast);
   RMotorC.setStopping(coast);
   
-  task autons(AutonSelect);
   task a(MotorControl);
   task b(DrivetrainControl);
   task c(IntakeControl);
@@ -81,11 +80,11 @@ int main() {
   Controller1.rumble(rumbleShort);
 
   // set up auton selector
-  //task autons(AutonSelect);
+  task autons(AutonSelect);
 
   // when competition switch or field control is plugged in, stop auton selector, initialize competition variables, and start screen control
   waitUntil(Competition.isFieldControl() || Competition.isCompetitionSwitch());
-  //autons.stop();
+  autons.stop();
   Competition.drivercontrol(driver);
   Competition.autonomous(autonCallback);
   std::cout << autonCallback << "\n";
