@@ -272,6 +272,13 @@ int AutonSelect() {
     autonCallback = autonBlueRight;
     waitUntil(!AutonSelector.pressing());
     waitUntil(AutonSelector.pressing());
+
+    Controller1.Screen.clearScreen();
+    Controller1.Screen.setCursor(1, 1);
+    Controller1.Screen.print("Auton: Skills");
+    autonCallback = autonSkills;
+    waitUntil(!AutonSelector.pressing());
+    waitUntil(AutonSelector.pressing());
   }
 }
 
