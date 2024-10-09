@@ -8,6 +8,7 @@
 
 using namespace vex;
 timer Timer;
+extern competition Competition;
 
 void (*autonCallback)();
 
@@ -370,7 +371,6 @@ int AutonSelect() {
   }
 }
 
-/*
 int ScreenControl() {
   while (true) {
     // X:XX Auton/Driver
@@ -413,4 +413,3 @@ int ScreenControl() {
     Controller1.Screen.clearScreen();
   }
 }
-*/
