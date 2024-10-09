@@ -25,8 +25,8 @@
 // ArmPiston            digital_out   C               
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
+#include <iostream>
 #include "vex.h"
-#include "auton.h"
 #include "controller.h"
 #include "drive.h"
 
@@ -85,6 +85,7 @@ int main() {
   waitUntil(Competition.isFieldControl() || Competition.isCompetitionSwitch());
   autons.stop();
   Competition.autonomous(autonCallback);
+  std::cout << autonCallback << "\n";
   Competition.drivercontrol(driver);
   Controller1.Screen.clearScreen();
   //task screen(ScreenControl);

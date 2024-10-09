@@ -8,5 +8,6 @@ int MobileGoalPistonControl();
 int ArmPistonControl();
 int MotorControl();
 int ScreenControl();
+int AutonSelect();
 
 #endif

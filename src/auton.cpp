@@ -5,6 +5,7 @@
 #include "drive.h"
 
 using namespace vex;
+/*
 void (*autonCallback)();
 
 const vex::controller::button AutonSelector = Controller1.ButtonA;
@@ -196,4 +197,4 @@ int AutonSelect() {
     printf("Button pressing\n");
   }
 }
-
+*/
