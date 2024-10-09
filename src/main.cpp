@@ -10,19 +10,19 @@
 // ---- START VEXCODE CONFIGURED DEVICES ----
 // Robot Configuration:
 // [Name]               [Type]        [Port(s)]
-// Inertial             inertial      14              
 // Controller1          controller                    
-// IntakePiston         digital_out   A               
-// MobileGoalPiston     digital_out   B               
-// IntakeMotor          motor         4               
 // LMotorA              motor         11              
 // LMotorB              motor         12              
 // LMotorC              motor         13              
 // RMotorA              motor         1               
 // RMotorB              motor         2               
 // RMotorC              motor         3               
+// Inertial             inertial      14              
 // TrackerWheel         rotation      15              
+// IntakePiston         digital_out   A               
+// MobileGoalPiston     digital_out   B               
 // ArmPiston            digital_out   C               
+// IntakeMotor          motor         4               
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
 #include <iostream>
