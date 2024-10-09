@@ -233,6 +233,95 @@ void autonBlueRight() {
 void autonSkills() {
   // autonomous skills actions
   Inertial.setHeading(180, degrees);
+  MobileGoalPiston.set(true);
+  IntakeMotor.spin(forward);
+  turnPID(270);
+  drivePID(600);
+  wait(500, msec); // ring
+  turnPID(0);
+  drivePID(300);
+  wait(500, msec); // ring
+  turnPID(270);
+  drivePID(300);
+  wait(500, msec); // ring
+  turnPID(30);
+  drivePID(600);
+  wait(500, msec); // ring
+  turnPID(90);
+  drivePID(600);
+  wait(500, msec); // ring
+  IntakeMotor.stop();
+  MobileGoalPiston.set(false); // drop mogo
+  turnPID(300);
+  drivePID(-1200);
+  MobileGoalPiston.set(true); // pick up mogo
+  IntakeMotor.spin(forward);
+  turnPID(120);
+  drivePID(600);
+  wait(500, msec); // ring
+  turnPID(0);
+  drivePID(300);
+  wait(500, msec); // ring
+  turnPID(90);
+  drivePID(300);
+  wait(500, msec); // ring
+  turnPID(330);
+  drivePID(600);
+  wait(500, msec); // ring
+  turnPID(270);
+  drivePID(600);
+  wait(500, msec); // ring
+  turnPID(315);
+  drivePID(800);
+  wait(500, msec); // ring
+  IntakeMotor.stop();
+  MobileGoalPiston.set(false); // drop mogo
+  turnPID(330);
+  drivePID(1200);
+  turnPID(270);
+  drivePID(-600);
+  MobileGoalPiston.set(true); // pick up mogo
+  IntakeMotor.spin(forward);
+  turnPID(225);
+  drivePID(800);
+  wait(500, msec); // ring
+  turnPID(270);
+  drivePID(600);
+  wait(500, msec); // ring
+  turnPID(0);
+  drivePID(600);
+  wait(500, msec); // ring
+  drivePID(-300);
+  turnPID(315);
+  drivePID(400);
+  wait(500, msec); // ring
+  turnPID(180);
+  drivePID(1200);
+  wait(500, msec); // ring
+  turnPID(40);
+  drivePID(800);
+  turnPID(315);
+  drivePID(400);
+  wait(500, msec); // ring
+  IntakeMotor.stop();
+  MobileGoalPiston.set(false); // drop mogo
+  IntakeMotor.spin(forward);
+  turnPID(120);
+  drivePID(2000);
+  wait(500, msec); // ring
+  IntakeMotor.spin(reverse);
+  wait(500, msec); // ring on claw
+  IntakeMotor.spin(forward);
+  turnPID(120);
+  drivePID(1000);
+  wait(500, msec); // ring
+  IntakeMotor.spin(reverse);
+  wait(500, msec); // ring on claw
+  IntakeMotor.stop();
+  ArmPiston.set(true); // raise arm
+  turnPID(90);
+  drivePID(300);
+  ArmPiston.set(false); // lower arm
 }
 
 int AutonSelect() {
