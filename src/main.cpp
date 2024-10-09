@@ -33,7 +33,7 @@
 using namespace vex;
 competition Competition;
 
-extern static void (*autonCallback)();
+extern void (*autonCallback)();
 
 void driver() {
   // set coast for driver control

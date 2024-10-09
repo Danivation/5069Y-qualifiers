@@ -5,8 +5,9 @@
 
 using namespace vex;
 
-static void (*autonCallback)();
+void (*autonCallback)();
 
+// controller bindings
 const vex::controller::button AutonSelector = Controller1.ButtonA;
 
 void autonNone() {
