@@ -25,6 +25,7 @@
 // ArmPiston            digital_out   C               
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
+#include <iostream>
 #include "vex.h"
 #include "auton.h"
 #include "controller.h"
@@ -33,7 +34,10 @@
 using namespace vex;
 competition Competition;
 
-extern void (*autonCallback)();
+void (*autonCallback)();
+
+// controller bindings
+const vex::controller::button AutonSelector = Controller1.ButtonA;
 
 void driver() {
   // set coast for driver control
@@ -50,6 +54,72 @@ void driver() {
   task d(IntakePistonControl);
   task e(MobileGoalPistonControl);
   task f(ArmPistonControl);
+}
+
+int AutonSelect() {
+  while (true) {
+    Controller1.Screen.clearScreen();
+    Controller1.Screen.setCursor(1, 1);
+    Controller1.Screen.print("Auton: None");
+    printf("Screen set\n");
+    std::cout << autonCallback << "\n";
+
+    autonCallback = autonNone;
+    printf("Variable set\n");
+    std::cout << autonCallback << "\n";
+
+    waitUntil(!AutonSelector.pressing());
+    printf("Button not pressing\n");
+    waitUntil(AutonSelector.pressing());
+    printf("Button pressing\n");
+
+
+    Controller1.Screen.clearScreen();
+    Controller1.Screen.setCursor(1, 1);
+    Controller1.Screen.print("Auton: Red Left");
+    printf("Screen set\n");
+
+    autonCallback = autonRedLeft;
+    printf("Variable set\n");
+
+    waitUntil(!AutonSelector.pressing());
+    printf("Button not pressing\n");
+    waitUntil(AutonSelector.pressing());
+    printf("Button pressing\n");
+
+    Controller1.Screen.clearScreen();
+    Controller1.Screen.setCursor(1, 1);
+    Controller1.Screen.print("Auton: Red Right");
+    printf("Screen set\n");
+    autonCallback = autonRedRight;
+    printf("Variable set\n");
+    waitUntil(!AutonSelector.pressing());
+    printf("Button not pressing\n");
+    waitUntil(AutonSelector.pressing());
+    printf("Button pressing\n");
+
+    Controller1.Screen.clearScreen();
+    Controller1.Screen.setCursor(1, 1);
+    Controller1.Screen.print("Auton: Blue Left");
+    printf("Screen set\n");
+    autonCallback = autonBlueLeft;
+    printf("Variable set\n");
+    waitUntil(!AutonSelector.pressing());
+    printf("Button not pressing\n");
+    waitUntil(AutonSelector.pressing());
+    printf("Button pressing\n");
+
+    Controller1.Screen.clearScreen();
+    Controller1.Screen.setCursor(1, 1);
+    Controller1.Screen.print("Auton: Blue Right");
+    printf("Screen set\n");
+    autonCallback = autonBlueRight;
+    printf("Variable set\n");
+    waitUntil(!AutonSelector.pressing());
+    printf("Button not pressing\n");
+    waitUntil(AutonSelector.pressing());
+    printf("Button pressing\n");
+  }
 }
 
 int main() {
@@ -79,11 +149,11 @@ int main() {
   Controller1.rumble(rumbleShort);
 
   // set up auton selector
-  task autons(AutonSelect);
+  //task autons(AutonSelect);
 
   // when competition switch or field control is plugged in, stop auton selector, initialize competition variables, and start screen control
   waitUntil(Competition.isFieldControl() || Competition.isCompetitionSwitch());
-  autons.stop();
+  //autons.stop();
   Competition.drivercontrol(driver);
   Competition.autonomous(autonCallback);
   Controller1.Screen.clearScreen();
