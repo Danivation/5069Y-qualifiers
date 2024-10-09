@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iostream>
 #include <cstdio>
 #include "vex.h"
 #include "auton.h"
@@ -8,7 +9,6 @@ using namespace vex;
 /*
 void (*autonCallback)();
 
-// controller bindings
 const vex::controller::button AutonSelector = Controller1.ButtonA;
 
 void autonNone() {
