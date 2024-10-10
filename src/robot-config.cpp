@@ -19,7 +19,7 @@ motor LMotorC = motor(PORT13, ratio6_1, false);
 motor RMotorA = motor(PORT1, ratio6_1, true);
 motor RMotorB = motor(PORT2, ratio6_1, true);
 motor RMotorC = motor(PORT3, ratio6_1, true);
-rotation TrackerWheel = rotation(PORT15, false);
+rotation TrackerWheel = rotation(PORT16, false);
 digital_out ArmPiston = digital_out(Brain.ThreeWirePort.C);
 
 // VEXcode generated functions
