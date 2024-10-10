@@ -172,7 +172,7 @@ void autonRedRight() {
 void autonBlueLeft() {
   // autonomous actions (new blue left)
   Inertial.setHeading(0, degrees);
-  drivePID(-900);
+  drivePID(-300);
   MobileGoalPiston.set(true);
   IntakeMotor.spin(forward);
   turnPID(90);
@@ -371,6 +371,7 @@ int AutonSelect() {
   }
 }
 
+/*
 int ScreenControl() {
   while (true) {
     // X:XX Auton/Driver
@@ -413,3 +414,4 @@ int ScreenControl() {
     }
   }
 }
+*/
