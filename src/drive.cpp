@@ -10,13 +10,13 @@ void drivePID(double targetDistance) {
   TrackerWheel.resetPosition();
   TimerDrive.clear();
 
-  const double kP = 0.5;
-  const double kI = 0.04;
+  const double kP = 0.935;
+  const double kI = 0;
   const double kD = 0;
 
-  double targetRange = 5;
+  double targetRange = 3;
   double integralLimit = 100;
-  double maxSpeed = 600;
+  double maxSpeed = 200;
 
   double traveledDistance = 0;
 

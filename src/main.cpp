@@ -79,6 +79,7 @@ int main() {
   wait(5, sec);
   Controller1.rumble(rumbleShort);
 
+  /*
   // set up auton selector
   task autons(AutonSelect);
 
@@ -89,6 +90,9 @@ int main() {
   Competition.autonomous(autonCallback);
   Controller1.Screen.clearScreen();
   //task screen(ScreenControl);
+  */
+  autonNone();
+  
 
   while (true) {
     wait(20, msec);

@@ -10,4 +10,6 @@ int MotorControl();
 int AutonSelect();
 int ScreenControl();
 
+void autonNone();
+
 #endif
