@@ -10,11 +10,11 @@ void drivePID(double targetDistance) {
   TrackerWheel.resetPosition();
   TimerDrive.clear();
 
-  const double kP = 0.935;
+  const double kP = 0.9;
   const double kI = 0;
-  const double kD = 0;
+  const double kD = 3;
 
-  double targetRange = 3;
+  double targetRange = 5;
   double integralLimit = 100;
   double maxSpeed = 200;
 
@@ -23,7 +23,7 @@ void drivePID(double targetDistance) {
   double error = 0;
   double integral = 0;
   double derivative = 0;
-  double previousError = 0;
+  double previousError = targetDistance;
   
   double speed = 0;
 
@@ -31,7 +31,7 @@ void drivePID(double targetDistance) {
 
   while (driveFinished == false) {
     // update variables
-    traveledDistance =  TrackerWheel.position(rev) * 165;
+    traveledDistance =  TrackerWheel.position(rev) * 171;
 
     // calculate error, integral, and derivative
     error = targetDistance - traveledDistance;
@@ -50,6 +50,12 @@ void drivePID(double targetDistance) {
       integral = 0;
     }
 
+    /* stop integral from increasing before needed
+    if (error > dLimit || error < -dLimit) {
+      derivative = 0;
+    }
+    */
+
     // calculate motor speed
     speed = (error * kP) + (integral * kI) + (derivative * kD);
     if (speed > maxSpeed) {
@@ -66,8 +72,9 @@ void drivePID(double targetDistance) {
     RMotorA.spin(forward, speed, rpm);
     RMotorB.spin(forward, speed, rpm);
     RMotorC.spin(forward, speed, rpm);
+    std::cout << speed << "\n";
 
-    // exit loop when target is reached
+    /* exit loop when target is reached*/
     if (error < targetRange && error > -targetRange) {
       LMotorA.stop();
       LMotorB.stop();
@@ -77,6 +84,7 @@ void drivePID(double targetDistance) {
       RMotorC.stop();
       driveFinished = true;
     }
+    /**/
     wait(10, msec);
   }
   // Drive __ mm (error __ mm) completed in __ seconds (__ ms)
