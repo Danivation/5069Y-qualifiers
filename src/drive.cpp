@@ -50,11 +50,12 @@ void drivePID(double targetDistance) {
       integral = 0;
     }
 
-    /* stop integral from increasing before needed
+/**
+    // stop derivative from increasing before needed
     if (error > dLimit || error < -dLimit) {
       derivative = 0;
     }
-    */
+/**/
 
     // calculate motor speed
     speed = (error * kP) + (integral * kI) + (derivative * kD);
@@ -74,7 +75,8 @@ void drivePID(double targetDistance) {
     RMotorC.spin(forward, speed, rpm);
     std::cout << speed << "\n";
 
-    /* exit loop when target is reached*/
+/**/
+    // exit loop when target is reached
     if (error < targetRange && error > -targetRange) {
       LMotorA.stop();
       LMotorB.stop();
@@ -84,7 +86,8 @@ void drivePID(double targetDistance) {
       RMotorC.stop();
       driveFinished = true;
     }
-    /**/
+/**/
+
     wait(10, msec);
   }
   // Drive __ mm (error __ mm) completed in __ seconds (__ ms)

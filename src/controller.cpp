@@ -371,12 +371,12 @@ int AutonSelect() {
   }
 }
 
-/*
+/**
 int ScreenControl() {
   while (true) {
-    // X:XX Auton/Driver
+    // x:xx Auton/Driver
     //
-    // XX%
+    // xx%
     Controller1.Screen.clearScreen();
     waitUntil(Competition.isAutonomous());
     Timer.clear();
@@ -414,4 +414,4 @@ int ScreenControl() {
     }
   }
 }
-*/
+/**/

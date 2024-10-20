@@ -73,27 +73,24 @@ int main() {
   MobileGoalPiston.set(false);
   IntakePiston.set(true);
   ArmPiston.set(false);
-
+/**/
   // calibrate inertial
   Inertial.calibrate();
   wait(5, sec);
   Controller1.rumble(rumbleShort);
-
-  /*
+/**
   // set up auton selector
   task autons(AutonSelect);
-
+/**
   // when competition switch or field control is plugged in, stop auton selector, initialize competition variables, and start screen control
   waitUntil(Competition.isFieldControl() || Competition.isCompetitionSwitch());
   autons.stop();
   Competition.drivercontrol(driver);
   Competition.autonomous(autonCallback);
   Controller1.Screen.clearScreen();
-  //task screen(ScreenControl);
-  */
+/**/
   autonNone();
-  
-
+/**/
   while (true) {
     wait(20, msec);
   }
