@@ -14,6 +14,7 @@ void drivePID(double targetDistance) {
   RMotorA.resetPosition();
   RMotorB.resetPosition();
   RMotorC.resetPosition();
+  wait(100, msec);
   //TrackerWheel.resetPosition();
   TimerDrive.clear();
 
