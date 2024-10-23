@@ -7,7 +7,14 @@ timer TimerDrive;
 timer TimerTurn;
 
 void drivePID(double targetDistance) {
-  TrackerWheel.resetPosition();
+  // reset the position of each motor to 0
+  LMotorA.resetPosition();
+  LMotorB.resetPosition();
+  LMotorC.resetPosition();
+  RMotorA.resetPosition();
+  RMotorB.resetPosition();
+  RMotorC.resetPosition();
+  //TrackerWheel.resetPosition();
   TimerDrive.clear();
 
   const double kP = 0.9;
@@ -31,7 +38,11 @@ void drivePID(double targetDistance) {
 
   while (driveFinished == false) {
     // update variables
-    traveledDistance =  TrackerWheel.position(rev) * 171;
+    leftDistance = ((LMotorA.position(rev) + LMotorB.position(rev) + LMotorC.position(rev)) / 3) * 220;
+    rightDistance = ((RMotorA.position(rev) + RMotorB.position(rev) + RMotorC.position(rev)) / 3) * 220;
+    traveledDistance = ((leftDistance + rightDistance) / 2);
+    // update variables
+    //traveledDistance =  TrackerWheel.position(rev) * 171;
 
     // calculate error, integral, and derivative
     error = targetDistance - traveledDistance;
