@@ -7,12 +7,20 @@ timer TimerDrive;
 timer TimerTurn;
 
 void drivePID(double targetDistance) {
-  TrackerWheel.resetPosition();
+  // reset the position of each motor to 0
+  LMotorA.resetPosition();
+  LMotorB.resetPosition();
+  LMotorC.resetPosition();
+  RMotorA.resetPosition();
+  RMotorB.resetPosition();
+  RMotorC.resetPosition();
+  //wait(100, msec);
+  //TrackerWheel.resetPosition();
   TimerDrive.clear();
 
   const double kP = 0.5;
-  const double kI = 0.04;
-  const double kD = 2;
+  const double kI = 0.02;
+  const double kD = 2.5;
 
   double targetRange = 5;
   double integralLimit = 100;
@@ -31,7 +39,11 @@ void drivePID(double targetDistance) {
 
   while (driveFinished == false) {
     // update variables
-    traveledDistance =  TrackerWheel.position(rev) * 171;
+    leftDistance = ((LMotorA.position(rev) + LMotorB.position(rev) + LMotorC.position(rev)) / 3) * 220;
+    rightDistance = ((RMotorA.position(rev) + RMotorB.position(rev) + RMotorC.position(rev)) / 3) * 220;
+    traveledDistance = ((leftDistance + rightDistance) / 2);
+    // update variables
+    //traveledDistance =  TrackerWheel.position(rev) * 171;
 
     // calculate error, integral, and derivative
     error = targetDistance - traveledDistance;
@@ -98,8 +110,8 @@ void turnPID(double targetHeading) {
   TimerTurn.clear();
 
   const double kP = 2;
-  const double kI = 0.1;
-  const double kD = 8;
+  const double kI = 0.05;
+  const double kD = 10;
 
   double targetRange = 1;
   double integralLimit = 10;
