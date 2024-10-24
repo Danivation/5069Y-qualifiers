@@ -10,9 +10,9 @@ void drivePID(double targetDistance) {
   TrackerWheel.resetPosition();
   TimerDrive.clear();
 
-  const double kP = 0.9;
-  const double kI = 0;
-  const double kD = 3;
+  const double kP = 0.5;
+  const double kI = 0.04;
+  const double kD = 2;
 
   double targetRange = 5;
   double integralLimit = 100;
@@ -98,8 +98,8 @@ void turnPID(double targetHeading) {
   TimerTurn.clear();
 
   const double kP = 2;
-  const double kI = 0.05;
-  const double kD = 0;
+  const double kI = 0.1;
+  const double kD = 8;
 
   double targetRange = 1;
   double integralLimit = 10;

@@ -81,7 +81,7 @@ int main() {
 /**
   // set up auton selector
   task autons(AutonSelect);
-/**
+
   // when competition switch or field control is plugged in, stop auton selector, initialize competition variables, and start screen control
   waitUntil(Competition.isFieldControl() || Competition.isCompetitionSwitch());
   autons.stop();
