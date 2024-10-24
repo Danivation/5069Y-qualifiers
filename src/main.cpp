@@ -1,28 +1,19 @@
-/*----------------------------------------------------------------------------*/
-/*                                                                            */
-/*    Module:       main.cpp                                                  */
-/*    Author:       Daniel Velasco                                            */
-/*    Created:      Wed Aug 28 2024                                           */
-/*    Description:  5069Y Competition Code (qualifier rounds)                 */
-/*                                                                            */
-/*----------------------------------------------------------------------------*/
-
 // ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
 // [Name]               [Type]        [Port(s)]
 // Controller1          controller                    
-// LMotorA              motor         11              
-// LMotorB              motor         12              
-// LMotorC              motor         13              
+// LMotorA              motor         4               
+// LMotorB              motor         5               
+// LMotorC              motor         6               
 // RMotorA              motor         1               
 // RMotorB              motor         2               
 // RMotorC              motor         3               
-// Inertial             inertial      14              
-// TrackerWheel         rotation      15              
-// IntakePiston         digital_out   A               
+// Inertial             inertial      20              
+// TrackerWheel         rotation      19              
+// ArmPiston            digital_out   A               
 // MobileGoalPiston     digital_out   B               
-// ArmPiston            digital_out   C               
-// IntakeMotor          motor         4               
+// DoinkerPiston        digital_out   C               
+// IntakeMotor          motor         7               
+// ConveyorMotor        motor         8               
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
 #include <iostream>
@@ -45,7 +36,7 @@ void driver() {
   RMotorB.setStopping(coast);
   RMotorC.setStopping(coast);
   
-  task a(MotorControl);
+  //task a(MotorControl);
   task b(DrivetrainControl);
   task c(IntakeControl);
   task d(IntakePistonControl);
@@ -70,15 +61,15 @@ int main() {
   IntakeMotor.setVelocity(600, rpm);
 
   // set starting piston positions
-  MobileGoalPiston.set(false);
-  IntakePiston.set(true);
+  MobileGoalPiston.set(true);
+  DoinkerPiston.set(false);
   ArmPiston.set(false);
 /**/
   // calibrate inertial
   Inertial.calibrate();
   wait(5, sec);
   Controller1.rumble(rumbleShort);
-/**
+/**/
   // set up auton selector
   task autons(AutonSelect);
 
@@ -88,7 +79,7 @@ int main() {
   Competition.drivercontrol(driver);
   Competition.autonomous(autonCallback);
   Controller1.Screen.clearScreen();
-/**/
+/**
   autonNone();
 /**/
   while (true) {

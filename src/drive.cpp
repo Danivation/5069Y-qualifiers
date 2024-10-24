@@ -6,7 +6,7 @@ using namespace vex;
 timer TimerDrive;
 timer TimerTurn;
 
-void drivePID(double targetDistance) {
+void drivePID(float targetDistance) {
   // reset the position of each motor to 0
   LMotorA.resetPosition();
   LMotorB.resetPosition();
@@ -18,22 +18,24 @@ void drivePID(double targetDistance) {
   //TrackerWheel.resetPosition();
   TimerDrive.clear();
 
-  const double kP = 0.5;
-  const double kI = 0.02;
-  const double kD = 2.5;
+  const float kP = 0.5;
+  const float kI = 0.02;
+  const float kD = 2.5;
 
-  double targetRange = 5;
-  double integralLimit = 100;
-  double maxSpeed = 200;
+  float targetRange = 5;
+  float integralLimit = 100;
+  float maxSpeed = 200;
 
-  double traveledDistance = 0;
+  float leftDistance;
+  float rightDistance;
+  float traveledDistance = 0;
 
-  double error = 0;
-  double integral = 0;
-  double derivative = 0;
-  double previousError = targetDistance;
+  float error = 0;
+  float integral = 0;
+  float derivative = 0;
+  float previousError = targetDistance;
   
-  double speed = 0;
+  float speed = 0;
 
   bool driveFinished = false;
 
@@ -109,22 +111,22 @@ void drivePID(double targetDistance) {
 void turnPID(double targetHeading) {
   TimerTurn.clear();
 
-  const double kP = 2;
-  const double kI = 0.05;
-  const double kD = 10;
+  const float kP = 2;
+  const float kI = 0.05;
+  const float kD = 10;
 
-  double targetRange = 1;
-  double integralLimit = 10;
-  double maxSpeed = 600;
+  float targetRange = 1;
+  float integralLimit = 10;
+  float maxSpeed = 600;
 
-  double currentHeading = 0;
+  float currentHeading = 0;
 
-  double error = 0;
-  double integral = 0;
-  double derivative = 0;
-  double previousError = 0;
-  
-  double speed = 0;
+  float error = 0;
+  float integral = 0;
+  float derivative = 0;
+  float previousError = 0;
+
+  float speed = 0;
 
   bool turnFinished = false;
 

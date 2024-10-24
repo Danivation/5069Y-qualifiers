@@ -13,17 +13,18 @@ extern competition Competition;
 void (*autonCallback)();
 
 // controller bindings
-const vex::controller::axis ForwardAxis = Controller1.Axis3;
-const vex::controller::axis TurnAxis = Controller1.Axis1;
-const vex::controller::button IntakeInButton = Controller1.ButtonR1;
-const vex::controller::button IntakeOutButton = Controller1.ButtonR2;
-const vex::controller::button IntakePistonToggle = Controller1.ButtonL1;
-const vex::controller::button MobileGoalPistonToggle = Controller1.ButtonDown;
-const vex::controller::button ArmPistonToggle = Controller1.ButtonL2;
-const vex::controller::button MotorControlToggle = Controller1.ButtonB;
-const vex::controller::button AutonSelector = Controller1.ButtonA;
+const vex::controller::axis ForwardAxis =               Controller1.Axis3;
+const vex::controller::axis TurnAxis =                  Controller1.Axis1;
 
-double motorSetting;              // motor rpm multiplier (x100)
+const vex::controller::button MobileGoalPistonToggle =  Controller1.ButtonDown;
+const vex::controller::button DoinkerPistonToggle =     Controller1.ButtonB;
+const vex::controller::button ArmPistonToggle =         Controller1.ButtonR1;
+const vex::controller::button IntakeInButton =          Controller1.ButtonL1;
+const vex::controller::button IntakeOutButton =         Controller1.ButtonL2;
+
+const vex::controller::button AutonSelector =           Controller1.ButtonA;
+
+float motorSetting;               // motor rpm multiplier (x100)
 int totalSec, timeSec, timeMin;   // timer variables
 std::ostringstream Line1, Line3;  // controller screen lines
 
@@ -43,26 +44,18 @@ int IntakeControl() {
   while (true) {
     if (IntakeInButton.pressing()) {
       IntakeMotor.spin(forward);
+      ConveyorMotor.spin(forward);
       waitUntil(!IntakeInButton.pressing());
       IntakeMotor.stop();
+      ConveyorMotor.stop();
     }
     if (IntakeOutButton.pressing()) {
       IntakeMotor.spin(reverse);
+      ConveyorMotor.spin(reverse);
       waitUntil(!IntakeOutButton.pressing());
       IntakeMotor.stop();
+      ConveyorMotor.stop();
     }
-  }
-}
-
-int IntakePistonControl() {
-  while (true) {
-    IntakePiston.set(true);
-    waitUntil(!IntakePistonToggle.pressing());
-    waitUntil(IntakePistonToggle.pressing());
-
-    IntakePiston.set(false);
-    waitUntil(!IntakePistonToggle.pressing());
-    waitUntil(IntakePistonToggle.pressing());
   }
 }
 
@@ -90,6 +83,19 @@ int ArmPistonControl() {
   }
 }
 
+int DoinkerPistonControl() {
+  while (true) {
+    DoinkerPiston.set(false);
+    waitUntil(!DoinkerPistonToggle.pressing());
+    waitUntil(DoinkerPistonToggle.pressing());
+
+    DoinkerPiston.set(true);
+    waitUntil(!DoinkerPistonToggle.pressing());
+    waitUntil(DoinkerPistonToggle.pressing());
+  }
+}
+
+/**
 int MotorControl() {
   while (true) {
     motorSetting = 6;   // 600 rpm
@@ -101,6 +107,7 @@ int MotorControl() {
     waitUntil(MotorControlToggle.pressing());
   }
 }
+/**/
 
 void autonNone() {
   // successfully do nothing
