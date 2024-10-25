@@ -3,12 +3,12 @@
 
 int DrivetrainControl();
 int IntakeControl();
-int IntakePistonControl();
+int DoinkerPistonControl();
 int MobileGoalPistonControl();
 int ArmPistonControl();
 int MotorControl();
 int AutonSelect();
-int ScreenControl();
+//int ScreenControl();
 
 void autonNone();
 

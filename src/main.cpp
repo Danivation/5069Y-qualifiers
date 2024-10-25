@@ -39,7 +39,7 @@ void driver() {
   //task a(MotorControl);
   task b(DrivetrainControl);
   task c(IntakeControl);
-  task d(IntakePistonControl);
+  task d(DoinkerPistonControl);
   task e(MobileGoalPistonControl);
   task f(ArmPistonControl);
 }

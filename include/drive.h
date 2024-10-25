@@ -1,7 +1,7 @@
 #ifndef DRIVE_FUNCS
 #define DRIVE_FUNCS
 
-void drivePID(double targetDistance);
-void turnPID(double targetHeading);
+void drivePID(float targetDistance);
+void turnPID(float targetHeading);
 
 #endif

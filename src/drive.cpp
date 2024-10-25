@@ -108,7 +108,7 @@ void drivePID(float targetDistance) {
   std::cout << "Drive " << targetDistance << " mm (error " << error << " mm) completed in " << TimerDrive.time(sec) << " seconds (" << TimerDrive.time(msec) << " ms)" << "\n";
 }
 
-void turnPID(double targetHeading) {
+void turnPID(float targetHeading) {
   TimerTurn.clear();
 
   const float kP = 2;
